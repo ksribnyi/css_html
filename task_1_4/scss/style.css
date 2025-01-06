@@ -1,0 +1,89 @@
+@keyframes moveLeft {
+  to {
+    transform: translatex(-10rem);
+  }
+}
+@keyframes topFace {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+@keyframes bottomFace {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #1E1E1E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wrapper {
+  margin-left: 2rem;
+  width: 100rem;
+  height: 12.7rem;
+  position: relative;
+}
+.wrapper .pac {
+  background-image: url("./../image/pacman.svg");
+  width: 16rem;
+  height: 12.688rem;
+}
+.wrapper .pac::before {
+  z-index: 1;
+  position: absolute;
+  content: "";
+  background-color: #F2682A;
+  width: 10.5rem;
+  height: 5.25rem;
+  left: 5rem;
+  top: 2rem;
+  border-radius: 10.5rem 10.5rem 0 0;
+  transform-origin: 50% 100%;
+  animation: topFace 1s linear infinite;
+}
+.wrapper .pac::after {
+  z-index: 1;
+  position: absolute;
+  content: "";
+  background-color: #F2682A;
+  width: 10.5rem;
+  height: 5.25rem;
+  left: 5rem;
+  top: 7.2rem;
+  border-radius: 0 0 10.5rem 10.5rem;
+  transform-origin: 50% 0;
+  animation: bottomFace 1s linear infinite;
+}
+.wrapper .food-container {
+  position: absolute;
+  top: 0.5rem;
+  left: 20rem;
+  height: 100%;
+  width: 80.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .food-container .food {
+  background-color: #FFFFFF;
+  width: 2.688rem;
+  height: 2.688rem;
+  border-radius: 50%;
+  animation: moveLeft 1s linear infinite;
+}
+
+/*# sourceMappingURL=style.css.map */

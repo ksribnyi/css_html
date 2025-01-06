@@ -1,0 +1,16 @@
+@import "variables.scss";
+
+@mixin ArrowLeft {
+  content: url("../image/arrow_left.svg");
+  float: left;
+  display: block;
+  background-color: $color_orange;
+}
+
+@mixin ArrowRight {
+  content: url("../image/arrow-right.svg");
+  display: block;
+  float: right;
+  box-shadow: 0 0.25rem 1rem 0 #00000014;
+  background-color: $color_white;
+}
