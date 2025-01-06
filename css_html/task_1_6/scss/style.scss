@@ -1,0 +1,224 @@
+$color-orange: #D64200;
+$color_white: #FFFFFF;
+$color_light-orange: #FFB69F4D;
+$color_gray: #C8C4C5;
+$font_family_1: Roboto, sans-serif;
+
+@mixin styleTextBold {
+  font-family: $font_family_1;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  letter-spacing: 0.02em;
+  text-align: left;
+
+}
+
+@mixin styleTextSmall {
+  font-family: $font_family_1;
+  font-size: 1.188rem;
+  font-weight: 400;
+  line-height: 2.063rem;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+body, html {
+  margin: auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  max-width: 100rem;
+  margin: auto;
+
+  .navigation {
+    background-color: $color-orange;
+    position: fixed;
+    height: 100vh;
+    max-width: 16.5rem;
+    width: 100%;
+
+    .navigation_logo {
+      margin-left: 1.75rem;
+    }
+
+    h1 {
+      @include styleTextBold;
+
+      display: inline-block;
+      color: $color_white;
+      padding-left: 1.75rem;
+      margin-bottom: 0.35rem;
+      margin-top: 11.875rem;
+      @media screen and (max-width: 768px) {
+        margin-top: 0.8rem;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 1.063rem;
+          right: 2.85rem;
+          width: 1rem;
+          height: 1rem;
+          border-right: 3px solid $color_white;
+          border-bottom: 3px solid $color_white;
+          transform: rotate(45deg);
+          @media screen and (max-width: 26.6px){
+            right: 1.85rem;
+          }
+        }
+
+        &:focus {
+          &::after {
+            transform: rotate(225deg);
+            top: 1.625rem;
+          }
+
+          & ~ .navigation_bar {
+            display: block;
+            position: absolute;
+            background-color: $color-orange;
+            width: 100vw;
+            top: 3.75rem;
+            height: 33.3rem;
+          }
+        }
+      }
+    }
+
+    .navigation_bar {
+      position: relative;
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          @include styleTextSmall;
+
+          font-size: 0.875rem;
+          line-height: 1.563rem;
+          list-style-type: none;
+          margin: 0;
+          border-top: 0.3px solid $color_white;
+          cursor: pointer;
+
+          a {
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            padding: 1rem 0 1rem 1.75rem;
+            box-sizing: border-box;
+            color: $color_white;
+
+            &:visited {
+              color: $color_white;
+            }
+          }
+
+          &:hover {
+            background-color: $color_light-orange;
+          }
+        }
+      }
+
+      .navigation_logo {
+        position: absolute;
+        top: -14.375rem;
+      }
+    }
+  }
+
+  main {
+    margin-left: 18.5rem;
+    height: max-content;
+    padding-top: 2.2rem;
+    padding-bottom: 3.75rem;
+
+    @media screen and (min-width: 100rem) {
+      padding-right: 8.75rem;
+    }
+
+    @media screen and (max-width: 100rem) {
+      padding-right: 3.75rem;
+    }
+
+    @media screen and (max-width: 48rem) {
+      padding: 0 1rem 5rem 0.688rem;
+      margin-left: 0;
+      width: 100vw;
+      box-sizing: border-box;
+    }
+
+    section {
+      h2 {
+        @include styleTextBold;
+
+        font-size: 1.188rem;
+        line-height: 2.188rem;
+      }
+
+      p {
+        @include styleTextSmall;
+      }
+
+      span {
+        @include styleTextSmall;
+
+        font-family: Pridi, sans-serif;
+        background-color: $color_gray;
+
+        &:nth-child(1) {
+          display: inline-block;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 1rem 1rem;
+          margin: 1rem 0;
+          @media screen and (max-width: 26.563rem) {
+            font-size: 1.063rem;
+          }
+        }
+      }
+
+      ul {
+        li {
+          @include styleTextSmall;
+
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 48rem) {
+    flex-direction: column;
+
+    .navigation {
+      position: fixed;
+      height: 3.813rem;
+      max-width: 100vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      h2 {
+        margin: 0.75rem;
+      }
+
+      .navigation_bar {
+        display: none;
+        height: 31.875rem;
+
+        .navigation_logo {
+          position: relative;
+          top: -3.438rem;
+          float: right;
+          margin-right: 2.5rem;
+          height: 8.75rem;
+        }
+      }
+    }
+  }
+}
